@@ -39,7 +39,7 @@ export function App() {
     setInput("");
   }
 
-  if (!engine) return <p>Carregando {progress}%</p>;
+  if (!engine) return <p>Carregando {(progress * 100).toFixed(2)}%</p>;
 
   return (
     <main>
