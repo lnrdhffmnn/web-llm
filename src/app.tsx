@@ -9,10 +9,12 @@ export function App() {
   const [generating, setGenerating] = useState(false);
 
   useEffect(() => {
+    if (engine) return;
+
     CreateMLCEngine("Llama-3.2-1B-Instruct-q4f16_1-MLC", {
       initProgressCallback: ({ progress }) => setProgress(progress),
     }).then(setEngine);
-  }, []);
+  }, [engine]);
 
   async function chat() {
     if (!engine) return;
